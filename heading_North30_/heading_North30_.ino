@@ -39,8 +39,8 @@ void setup() {
 
 void loop() {
   mlx.readData(data); //Read the values from the sensor
-  float x = float(data.x) - 200;
-  float y = float(data.y) - 270;
+  float x = float(data.x) - 360;
+  float y = float(data.y) - 268.5;
   Serial.print(x); Serial.print("\t");
   Serial.print(y);  Serial.print("\t");
   float heading = atan2(y, x); 
@@ -52,52 +52,52 @@ void loop() {
     heading = heading * 180/M_PI ;
     Serial.print(heading); Serial.print("\n");
     
-  if (20 <= heading && heading <= 40) //Go straight
+  if (35 <= heading && heading <= 55) //Go straight
   { 
-    left.writeMicroseconds(1550);
-    right.writeMicroseconds(1550); 
+    left.writeMicroseconds(1600);
+    right.writeMicroseconds(1600); 
   }
 
-  if (40 < heading && heading < 85 ) //left
+  if (55 < heading && heading < 100 ) //left
   { 
-    left.writeMicroseconds(1510); 
-    right.writeMicroseconds(1560); 
+    left.writeMicroseconds(1530); 
+    right.writeMicroseconds(1600); 
   }
   
-  if (85 <= heading && heading < 160 ) //Left
+  if (100 <= heading && heading < 175 ) //Left
   { 
-    left.writeMicroseconds(1510); 
-    right.writeMicroseconds(1610); 
+    left.writeMicroseconds(1530); 
+    right.writeMicroseconds(1630); 
   }
 
-  if ( 160 <= heading && heading < 210 ) //reverse, left
+  if ( 175 <= heading && heading < 225 ) //reverse, left
   { 
-    left.writeMicroseconds(1510); 
+    left.writeMicroseconds(1530); 
     right.writeMicroseconds(1650); 
   }
 
-  if (210 <= heading && heading < 260 ) //reverse, right
+  if (225 <= heading && heading < 275 ) //reverse, right
   { 
     left.writeMicroseconds(1650); 
-    right.writeMicroseconds(1510); 
+    right.writeMicroseconds(1530); 
   }
   
-  if (260 <= heading && heading < 335 ) //Right
+  if (275 <= heading && heading < 350 ) //Right
   { 
-    left.writeMicroseconds(1610); 
-    right.writeMicroseconds(1510); 
+    left.writeMicroseconds(1630); 
+    right.writeMicroseconds(1530); 
   }
   
-  if (335 <= heading && heading <= 360 ) //right
+  if (350 <= heading && heading <= 360 ) //right
   { 
-    left.writeMicroseconds(1560); 
-    right.writeMicroseconds(1510); 
+    left.writeMicroseconds(1600); 
+    right.writeMicroseconds(1530); 
   }
 
-    if (0 <= heading && heading < 20 ) //right
+    if (0 <= heading && heading < 35 ) //right
   { 
-    left.writeMicroseconds(1560); 
-    right.writeMicroseconds(1510); 
+    left.writeMicroseconds(1600); 
+    right.writeMicroseconds(1530); 
   }
     
   delay(500);
