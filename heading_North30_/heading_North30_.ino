@@ -31,9 +31,6 @@ void setup() {
   left.attach(servoleft);
   right.attach(servoright);
 
-  left.attach(servoleft);
-  right.attach(servoright);
-
   left.writeMicroseconds(1500); // send "stop" signal to ESC.
   right.writeMicroseconds(1500); // send "stop" signal to ESC.
 
